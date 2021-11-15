@@ -31,12 +31,16 @@ export default class Menu extends Component {
     register(email, password){
         auth.createUserWithEmailAndPassword(email, password)
         .then(()=> { 
-            console.log('register')
+            console.log('Registrado');
+            Response.user.updateProfile({
+                displayName: username
+            })
         })
     }
     login(email,password){
         auth.signInWithEmailAndPassword(email, password)
         .then((usuario)=>{
+            console.log('Logueado')
             this.setState({
                 logedIn: true,
                 usuario: usuario.user
