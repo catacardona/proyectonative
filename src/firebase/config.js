@@ -12,6 +12,6 @@ const firebaseConfig = {
 
   app.initializeApp(firebaseConfig) 
 
-  export const auth= firebase.auth() //auth funcion que guardo en la constante auth, guardo los datos q voy a necesitar
-  export const storage= app.storage() 
-  export const db= app.firestore() //guardar y traer cosas
+  export const auth= firebase.auth() //auth funcion que guardo en la constante auth, guardo los datos q voy a necesitar, sirve para lo que tenga que ver con usuarios
+  export const storage= app.storage() //para las fotos 
+  export const db= app.firestore() //guardar y traer cosas, posteos, comentarios
