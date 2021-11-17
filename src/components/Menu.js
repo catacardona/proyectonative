@@ -63,7 +63,7 @@ export default class Menu extends Component {
     <Drawer.Navigator>
     <Drawer.Screen name="Home" component={()=> <Home/>}/>
     <Drawer.Screen name="Posts" component={()=> <Posts/>}/>
-    <Drawer.Screen name="Perfil" component={()=> <Perfil logout={()=>this.logout()}/>}/>
+    <Drawer.Screen name="Perfil" component={()=> <Perfil logout={()=>this.logout()} usuario={this.state.usuario}/>}/>
 </Drawer.Navigator>
 ):(
     <Drawer.Navigator>
