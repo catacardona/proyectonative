@@ -7,6 +7,7 @@ import Login from '../screens/Login'
 import Registro from '../screens/Registro'
 import Perfil from '../screens/Perfil'
 import Posts from '../screens/Posts'
+import Buscar from '../screens/Buscar'
 
 const Drawer= createDrawerNavigator() //funcion que le devuelve cosas a drawer, para que funcione en el render
 import {auth} from '../firebase/config'
@@ -62,6 +63,7 @@ export default class Menu extends Component {
 {               this.state.logedIn? (
     <Drawer.Navigator>
     <Drawer.Screen name="Home" component={()=> <Home/>}/>
+    <Drawer.Screen name="Buscar" component={()=> <Buscar/>}/>
     <Drawer.Screen name="Posts" component={(drawerProps)=> <Posts drawerProps={drawerProps}/>}/>
     <Drawer.Screen name="Perfil" component={()=> <Perfil logout={()=>this.logout()} usuario={this.state.usuario}/>}/>
 </Drawer.Navigator>

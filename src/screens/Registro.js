@@ -39,7 +39,7 @@ class Registro extends Component{
                     keyboardType='email-address'
                     secureTextEntry={true}
                 />
-                <TouchableOpacity style={styles.button} onPress={()=>this.props.register(this.state.email, this.state.password, this.state.usuario)}>
+                <TouchableOpacity style={styles.button} disabled={this.state.email==''|| this.state.password=='' ||this.state.usuario=='' ? true:false } onPress={()=>this.props.register(this.state.email, this.state.password, this.state.usuario)}>
                     <Text style={styles.textButton}>Registrarse</Text>    
                 </TouchableOpacity>
             </View>
