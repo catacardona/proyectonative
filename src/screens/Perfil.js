@@ -22,7 +22,7 @@ class Perfil extends Component{
         return(
             <View>
                 <Text style={styles.title}> Mi perfil </Text>
-            <Text style={styles.welcome}> Bienvenido: {this.props.usuario.usuario}</Text>
+            <Text style={styles.welcome}> Bienvenido: {this.props.usuario.displayName}</Text>
           <Text style={styles.element}> Email: {this.props.usuario.email}</Text>
           <Text style={styles.element}> Usuario creado el: {this.props.usuario.metadata.creationTime}</Text>
           <Text style={styles.element}> Último login: {this.props.usuario.metadata.lastSignInTime}</Text>

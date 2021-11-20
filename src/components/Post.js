@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View, TouchableOpacity, StyleSheet, Modal, TextInput, FlatList} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet, Modal, TextInput, FlatList, Image} from 'react-native';
 import { auth, db } from "../firebase/config";
 import firebase from "firebase";
 
@@ -99,6 +99,7 @@ class Post extends Component{
         return(
             <View style={styles.postContainer}>
                 <Text>{this.props.postData.data.textoPost}</Text>
+                <Image style={styles.imagen} source={{uri:this.props.postData.data.photo}}/>
                 <Text>{this.props.postData.data.owner}</Text>
                 <Text>Likes: {this.state.likes}</Text> 
                {
@@ -187,6 +188,9 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         margin:5,
         alignSelf:'flex-end'
+    },
+    imagen:{
+        height: 100
     }
 })
 

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {View, Text, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import { auth, db } from "../firebase/config";
+import MyCamera from '../components/MyCamera'
 
 
 class Posts extends Component{
@@ -8,6 +9,8 @@ class Posts extends Component{
         super(props)
         this.state={
             textoPost:'',
+            showCamera: true,
+            url: '',
         }
     }
 
@@ -17,6 +20,7 @@ class Posts extends Component{
             owner: auth.currentUser.email,
             createdAt: Date.now(),
             textoPost: this.state.textoPost,
+            photo: this.state.url
         })
         .then(()=>{
             console.log('posteado ok.')
@@ -29,10 +33,20 @@ class Posts extends Component{
         .catch( e => console.log(e))
     }
 
+    onImageUpload(url){
+        this.setState({
+            showCamera: false,
+            url: url
+        })
+    }
+
 
     render(){
         console.log(this.props.login);
         return(
+            this.state.showCamera ?
+            <MyCamera onImageUpload={(url)=> this.onImageUpload(url)} />
+            :
             <View style={styles.formContainer}>
             <Text>Nuevo Post</Text>
                 <TextInput
