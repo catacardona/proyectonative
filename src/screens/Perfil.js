@@ -7,16 +7,33 @@ import {Text,
         ActivityIndicator,
         FlatList,
         TextInput } from 'react-native';
-
+import Post from '../components/Post'
+import {db} from '../firebase/config'
 
 class Perfil extends Component{
     constructor(props){
         super(props)
         this.state={
-            
+        posts: [] 
         }
     }
-
+componentDidMount(){
+    db.collection('Posts').orderBy('createdAt', 'desc').where('owner', '==', this.props.usuario.email).onSnapshot(
+        docs => {
+            let posteos = [];
+            docs.forEach( doc => {
+                posteos.push({
+                    id: doc.id,
+                    data: doc.data()
+                })
+            })
+            
+            this.setState({
+                posts: posteos,
+            })
+        }
+    )
+}
     render(){
         console.log(this.props.usuario);
         return(
@@ -28,7 +45,16 @@ class Perfil extends Component{
           <Text style={styles.element}> Último login: {this.props.usuario.metadata.lastSignInTime}</Text>
           <TouchableOpacity style={styles.touchable} onPress={()=>this.props.logout()}>
             <Text style={styles.touchableText}>Logout</Text>
-          </TouchableOpacity>         
+          </TouchableOpacity>   
+          {this.state.posts.length>0 ? 
+           <FlatList 
+           data = {this.state.posts}
+           keyExtractor = { post => post.id}
+           renderItem= {({item})=><Post postData={item} />}
+       />
+       :
+       <Text> </Text>
+          }      
       </View>       
     )
   }

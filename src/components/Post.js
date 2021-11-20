@@ -135,7 +135,7 @@ class Post extends Component{
                                     keyExtractor={post => post.createdAt.toString()}
                                     renderItem={({item})=> <Text> {item.author}: {item.commentText}</Text>}
                                 /> :
-                                <Text></Text>
+                                <Text> No hay comentarios </Text>
                         }
                         {/* Form para nuevo comentario */}
                         <View>
