@@ -32,7 +32,7 @@ export default class Menu extends Component {
         auth.createUserWithEmailAndPassword(email, password)
         .then(()=> { 
             console.log('Registrado');
-            Response.user.updateProfile({
+            Response.usuario.updateProfile({
                 displayName: username
             })
         })
