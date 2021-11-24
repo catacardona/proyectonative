@@ -25,7 +25,8 @@ class Posts extends Component{
         .then(()=>{
             console.log('posteado ok.')
             this.setState({
-                textoPost: ''
+                textoPost: '',
+                showCamera: true
             })
             //Redirect.
             this.props.drawerProps.navigation.navigate('Home');
