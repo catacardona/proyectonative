@@ -16,7 +16,7 @@ class Buscar extends Component{
         this.state={
         posts: [],
         buscar:'',
-        cargando:true
+        loading:true
         }
     }
 buscar(){
@@ -38,15 +38,16 @@ buscar(){
     )
 }
     render(){
+        console.log(this.state.posts)
         console.log(this.props.usuario);
         return(
             <View>
-                <TextInput onChangeText={(text)=>this.setState({buscar:text})} placeholder='Busca un usuario'/> 
+                <TextInput onChangeText={(text)=>this.setState({buscar:text})} placeholder='Ingresa un usuario'/> 
           <TouchableOpacity style={styles.touchable} onPress={()=>this.buscar()}>
-            <Text style={styles.touchableText}>Busca</Text>
+            <Text style={styles.touchableText}>Presiona el boton para buscar</Text>
           </TouchableOpacity>   
           {this.state.loading?
-           <Text style={styles.touchableText}>Busca un usuario</Text>
+           <Text style={styles.touchableText}></Text>
            :
            this.state.posts.length>0 ? 
             <FlatList 
