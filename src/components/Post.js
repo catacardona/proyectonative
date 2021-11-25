@@ -171,6 +171,10 @@ const styles = StyleSheet.create({
         paddingVertical:5,
         marginBottom: 15,
         marginHorizontal:10,
+        backgroundColor: '#E3F4FD',
+        alignSelf: 'center',
+        display: "flex",
+        flexWrap: "wrap",
     },
     modalContainer:{
      width: '97%',
@@ -180,6 +184,7 @@ const styles = StyleSheet.create({
      marginVertical: 10,
     boxShadow:'rgb(204 204 204) 0px 0px 12px 9px',
     backgroundColor:'#fff',
+
     },
     closeButton:{
         backgroundColor:'#dc3545',
@@ -190,7 +195,9 @@ const styles = StyleSheet.create({
         alignSelf:'flex-end'
     },
     imagen:{
-        height: 100
+        height: 200,
+        width: 200,
+        margin: 20,
     }
 })
 

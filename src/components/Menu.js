@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer' //traigo lo que importe
 import Home from '../screens/Home'

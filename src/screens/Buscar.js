@@ -3,8 +3,6 @@ import {Text,
         TouchableOpacity,
         View,
         StyleSheet,
-        Image,
-        ActivityIndicator,
         FlatList,
         TextInput } from 'react-native';
 import Post from '../components/Post'

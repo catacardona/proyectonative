@@ -3,10 +3,7 @@ import {Text,
         TouchableOpacity,
         View,
         StyleSheet,
-        Image,
-        ActivityIndicator,
-        FlatList,
-        TextInput } from 'react-native';
+        FlatList} from 'react-native';
 import Post from '../components/Post'
 import {db} from '../firebase/config'
 

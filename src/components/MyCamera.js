@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Image, TextInput, TouchableOpacityBase} from 'react-native';
 import {Camera} from 'expo-camera';
-import {db, storage} from '../firebase/config';
+import {storage} from '../firebase/config';
 
 class MyCamera extends Component{
     constructor(props){
@@ -65,8 +65,10 @@ class MyCamera extends Component{
     }
 
     clear(){
-        //cambiar el estado de photo a ''
-        //cambiar showCamera a true.
+    this.setState({
+        photo: "",
+        showCamera: true
+    })
     }
 
 
@@ -119,13 +121,27 @@ class MyCamera extends Component{
 const styles=StyleSheet.create({
     container:{
         flex:1,
+
     },
     cameraBody:{
         flex:7,
+        height: 400,
+        margin: 25,
+        marginBottom: 0,
     },
     button:{
         flex:1,
         justifyContent: 'center',
+        textAlign: 'center',
+        backgroundColor:'#B6E5FC',
+        color:'#fff',
+        padding:5,
+        borderRadius: 4,
+        margin:5,
+        width: 400,
+        alignSelf: 'center',
+        margin: 20,
+    
     }
 })
 
